@@ -29,7 +29,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
      public ResponseEntity<Cliente> obtenerPorId(@PathVariable Long id) {
          return clienteService.obtenerPorId(id)
                  .map(cliente -> {
-                     cliente.setContraseña(null); // No exponer la contraseña
+                     cliente.setContraseña(null); 
                      return ResponseEntity.ok(cliente);
                  })
                  .orElse(ResponseEntity.notFound().build());
@@ -38,7 +38,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
      @PostMapping("/registro")
      public ResponseEntity<Cliente> registrarCliente(@RequestBody Cliente cliente) {
          Cliente nuevoCliente = clienteService.registrarCliente(cliente);
-         nuevoCliente.setContraseña(null); // No exponer la contraseña
+         nuevoCliente.setContraseña(null); 
          return ResponseEntity.ok(nuevoCliente);
      }
  
